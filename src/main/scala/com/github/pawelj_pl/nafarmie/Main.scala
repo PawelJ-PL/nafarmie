@@ -9,6 +9,6 @@ object Main extends ZIOAppDefault {
 
   override val bootstrap = zio.Runtime.removeDefaultLoggers >>> SLF4J.slf4j
 
-  override def run: ZIO[Scope, Throwable, Server] = HttpServer.live.useForever.provide(AppConfig.live)
+  override def run: ZIO[Scope, Throwable, Server] = HttpServer.live.provide(AppConfig.live)
 
 }
