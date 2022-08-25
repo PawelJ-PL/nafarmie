@@ -20,7 +20,9 @@ object Dependencies {
 
   private val logback = "ch.qos.logback" % "logback-classic" % Version.logback
 
-  val backendDependencies = Seq(zio, zioMacros, zioCats, zioSlf4j, zioTest, zioTestSbt, http4sServer, http4sServerDsl, logback)
+  private val ciris = "is.cir" %% "ciris" % Version.ciris
+
+  val backendDependencies = Seq(zio, zioMacros, zioCats, zioSlf4j, zioTest, zioTestSbt, http4sServer, http4sServerDsl, logback, ciris)
 
 }
 
@@ -35,5 +37,7 @@ private object Version {
   val http4s = "1.0.0-M35"
 
   val logback = "1.3.0-beta0"
+
+  val ciris = "2.3.3"
 
 }
