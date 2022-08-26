@@ -2,6 +2,8 @@ import sbt._
 
 object Dependencies {
 
+  private val kindProjector = compilerPlugin("org.typelevel" % "kind-projector" % Version.plugins.kindProjector cross CrossVersion.full)
+
   private val zio = "dev.zio" %% "zio" % Version.zio
 
   private val zioMacros = "dev.zio" %% "zio-macros" % Version.zio
@@ -22,11 +24,45 @@ object Dependencies {
 
   private val ciris = "is.cir" %% "ciris" % Version.ciris
 
-  val backendDependencies = Seq(zio, zioMacros, zioCats, zioSlf4j, zioTest, zioTestSbt, http4sServer, http4sServerDsl, logback, ciris)
+  private val fuuid = "io.chrisdavenport" %% "fuuid" % Version.fuuid
+
+  private val fuuidCirce = "io.chrisdavenport" %% "fuuid-circe" % Version.fuuid
+
+  private val jwt = "com.pauldijou" %% "jwt-core" % Version.jwt
+
+  private val circeGeneric = "io.circe" %% "circe-generic" % Version.circe
+
+  private val circeParser = "io.circe" %% "circe-parser" % Version.circe
+
+  val backendDependencies =
+    Seq(
+      kindProjector,
+      zio,
+      zioMacros,
+      zioCats,
+      zioSlf4j,
+      zioTest,
+      zioTestSbt,
+      http4sServer,
+      http4sServerDsl,
+      logback,
+      ciris,
+      fuuid,
+      fuuidCirce,
+      jwt,
+      circeGeneric,
+      circeParser
+    )
 
 }
 
 private object Version {
+
+  object plugins {
+
+    val kindProjector = "0.13.2"
+
+  }
 
   val zio = "2.0.1"
 
@@ -39,5 +75,11 @@ private object Version {
   val logback = "1.3.0-beta0"
 
   val ciris = "2.3.3"
+
+  val fuuid = "0.8.0-M2"
+
+  val jwt = "5.0.0"
+
+  val circe = "0.15.0-M1"
 
 }
